@@ -6,6 +6,7 @@ target/
 .idea
 .repository/
 
+JavaRushTasks.iml
 /out/
 /JavaRushPlugin.properties
 /Instruction.png
