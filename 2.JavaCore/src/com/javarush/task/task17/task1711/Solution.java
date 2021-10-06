@@ -1,7 +1,5 @@
 package com.javarush.task.task17.task1711;
 
-
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,7 +22,7 @@ public class Solution {
     public static void main(String[] args) {
         //start here - начни тут
 
-        args = new String[]{"-c", "Василий", "м", "15/04/1990", "Алена", "ж", "08/05/1996"};
+        //args = new String[]{"-c", "Василий", "м", "15/04/1990", "Алена", "ж", "08/05/1996", "Алена", "ж", "08/05/1996", "Алена", "ж", "08/05/1996"};
         //args = new String[] {"-u", "0", "Александр", "м", "21/07/1987", "1", "Елена", "ж", "08/09/1993"};
         //args = new String[] {"-d", "0", "1"};
         //args = new String[] {"-i", "0", "1"};
@@ -36,68 +34,95 @@ public class Solution {
         //String[] args1 = new String[]{"-d", "0"};
 
 
-        //-c add unit
-        if (args[0].equals("-c")) {
-            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-            Date dateFormat = null;
-            try {
-                dateFormat =  format.parse(args[3]);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
+        //-с - добавляет всех людей с заданными параметрами в конец allPeople, выводит id (index) на экран в соответствующем порядке
+        for(int i = 0; i <= args.length-3; i=i+3){
+            if (args[0].equals("-c")) {
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                Date dateFormat = null;
+                try {
+                    dateFormat =  format.parse(args[i+3]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
-            if (args[2].equals("м")) {
-                allPeople.add(Person.createMale(args[1], dateFormat));
+                if (args[i+2].equals("м")) {
+                    allPeople.add(Person.createMale(args[i+1], dateFormat));
+                }
+                if (args[i+2].equals("ж")) {
+                    allPeople.add(Person.createFemale(args[i+1], dateFormat));
+                }
+                System.out.println(allPeople.size()-1);
             }
-            if (args[2].equals("ж")) {
-                allPeople.add(Person.createFemale(args[1], dateFormat));
-            }
-            System.out.println(allPeople.size()-1);
+            //System.out.println(i);
         }
-        //-r print unit
-        if (args[0].equals("-r")) {
-            int id = Integer.parseInt(args[1]);
-            // format SimpleDateFormat  Locale.ENGLISH
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
-            String dateUnit = dateFormat.format(allPeople.get(id).getBirthDate());
-            String sex = allPeople.get(id).getSex() == Sex.MALE ? "м" : "ж";
+        //System.out.println(allPeople.size()); //проверяем сколько добавилось человек в базу
 
-            System.out.println(allPeople.get(id).getName() + " " + sex + " " + dateUnit);
-        }
-        //-u update unit
-        if (args[0].equals("-u")) {
-            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-            Date dateFormat = null;
-            int id = Integer.parseInt(args[1]);
 
-            try {
-                dateFormat = format.parse(args[4]);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            Person person = Person.createMale(args[2], dateFormat);
-            //if (args1[3].equals("м")) {
-            if (args[3] == "м") {
-                allPeople.set(id, person);
-                person.setSex(Sex.MALE);
-                //System.out.println(args1[3]);
-            }
-            //if (args1[3].equals("ж")) {
-            if (args[3] == "ж") {
-                allPeople.set(id, person);
-                person.setSex(Sex.FEMALE);
-            }
-            //System.out.println(allPeople.get(Integer.parseInt(args1[1])).getName()); //проверка что значение изменилось
-        }
-        //-d remove unit
-        if (args[0].equals("-d")) {
-            //allPeople.remove(Integer.parseInt(args[1]));
-            //System.out.println("This unit delete");
-            Person person = Person.createMale(null, null);
-            person.setSex(null);
 
-            allPeople.set(Integer.parseInt(args[1]), person);
+
+        //-i - выводит на экран информацию о всех людях с заданными id: name sex bd
+        for(int i = 0; i < args.length-1; i++){
+            if (args[0].equals("-i")) {
+                int id = Integer.parseInt(args[i+1]);
+                // format SimpleDateFormat  Locale.ENGLISH
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
+                String dateUnit = dateFormat.format(allPeople.get(id).getBirthDate());
+                String sex = allPeople.get(id).getSex() == Sex.MALE ? "м" : "ж";
+
+                System.out.println(allPeople.get(id).getName() + " " + sex + " " + dateUnit);
+                //System.out.println(i);
+            }
         }
+
+
+
+
+
+        //-u - обновляет соответствующие данные людей с заданными id
+        for(int i = 0; i <= args.length-3; i=i+4){
+            if (args[0].equals("-u")) {
+                SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                Date dateFormat = null;
+                int id = Integer.parseInt(args[i+1]);
+
+                try {
+                    dateFormat = format.parse(args[i+4]);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                Person person = Person.createMale(args[i+2], dateFormat);
+                //if (args1[3].equals("м")) {
+                if (args[i+3] == "м") {
+                    allPeople.set(id, person);
+                    person.setSex(Sex.MALE);
+                    //System.out.println(args1[3]);
+                }
+                //if (args1[3].equals("ж")) {
+                if (args[i+3] == "ж") {
+                    allPeople.set(id, person);
+                    person.setSex(Sex.FEMALE);
+                }
+               // System.out.println(allPeople.get(Integer.parseInt(args[i+1])).getName()); //проверка что значение изменилось
+            }
+        }
+
+
+
+
+
+        //-d - производит логическое удаление человека с id, заменяет все его данные на null
+        for(int i = 0; i < args.length-1; i++){
+            if (args[0].equals("-d")) {
+                //allPeople.remove(Integer.parseInt(args[1]));
+                //System.out.println("This unit delete");
+                Person person = Person.createMale(null, null);
+                person.setSex(null);
+
+                allPeople.set(Integer.parseInt(args[i+1]), person);
+               // System.out.println(i);
+            }
+        }
+
 
     }
 }
