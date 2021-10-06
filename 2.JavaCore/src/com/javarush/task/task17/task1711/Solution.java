@@ -1,6 +1,6 @@
 package com.javarush.task.task17.task1711;
 
-import com.javarush.task.task17.task1710.Sex;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -47,10 +47,10 @@ public class Solution {
             }
 
             if (args[2].equals("м")) {
-                allPeople.add(com.javarush.task.task17.task1710.Person.createMale(args[1], dateFormat));
+                allPeople.add(Person.createMale(args[1], dateFormat));
             }
             if (args[2].equals("ж")) {
-                allPeople.add(com.javarush.task.task17.task1710.Person.createFemale(args[1], dateFormat));
+                allPeople.add(Person.createFemale(args[1], dateFormat));
             }
             System.out.println(allPeople.size()-1);
         }
@@ -60,7 +60,7 @@ public class Solution {
             // format SimpleDateFormat  Locale.ENGLISH
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
             String dateUnit = dateFormat.format(allPeople.get(id).getBirthDate());
-            String sex = allPeople.get(id).getSex() == com.javarush.task.task17.task1710.Sex.MALE ? "м" : "ж";
+            String sex = allPeople.get(id).getSex() == Sex.MALE ? "м" : "ж";
 
             System.out.println(allPeople.get(id).getName() + " " + sex + " " + dateUnit);
         }
@@ -75,11 +75,11 @@ public class Solution {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            com.javarush.task.task17.task1710.Person person = com.javarush.task.task17.task1710.Person.createMale(args[2], dateFormat);
+            Person person = Person.createMale(args[2], dateFormat);
             //if (args1[3].equals("м")) {
             if (args[3] == "м") {
                 allPeople.set(id, person);
-                person.setSex(com.javarush.task.task17.task1710.Sex.MALE);
+                person.setSex(Sex.MALE);
                 //System.out.println(args1[3]);
             }
             //if (args1[3].equals("ж")) {
@@ -93,7 +93,7 @@ public class Solution {
         if (args[0].equals("-d")) {
             //allPeople.remove(Integer.parseInt(args[1]));
             //System.out.println("This unit delete");
-            com.javarush.task.task17.task1710.Person person = com.javarush.task.task17.task1710.Person.createMale(null, null);
+            Person person = Person.createMale(null, null);
             person.setSex(null);
 
             allPeople.set(Integer.parseInt(args[1]), person);
