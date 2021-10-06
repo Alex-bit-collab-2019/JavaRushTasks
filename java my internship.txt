@@ -1,0 +1,92 @@
+План стажировки.
+
+    Неделя 1: Системы управления версиями
+Системы управления версиями. VCS/DVSC.
+Основы Git
+Date and Time API in Java 8
+Java 8 Stream Tutorial
+
+    Неделя 2: Maven. WAR. Веб-контейнер Tomcat. Сервлеты. Логгирование
+Java 8 Lambda
+Основное в Java 8
+Среда сборки проектов Maven
+Build Lifecycle
+Запуск Tomcat из IDEA. Динамическое обновление без передеплоя.
+Добавление зависимостей логирования в проект
+Log4j, Logback
+Управление логированием по JMX
+Контекст приложения. Деплой в Tomcat без IDE. Remote debug
+
+    Неделя 3: Обзор Spring Framework. Spring Context. Слои приложения. Создание каркаса приложения.
+Архитектурные слои приложения в Spring
+IoC, DI, IoC-контейнер
+Паттерн DTO. Value Object и Data Transfer Object
+Обзор Spring Framework
+
+    Неделя 4: Spring context, JUnit, ORM
+Spring изнутри. Этапы инициализации контекста
+JUnit 4
+Базы данных. Обзор NoSQL и Java persistence solution без ORM
+Spring Jdbc Template
+
+    Неделя 5: Hibernate. JPA
+Повторяем Lambda и Stream
+Инициализация базы при старте приложения
+mock: подмена контекста при тестировании
+Hibernate. Другие ORM: TopLink, ElipseLink, EBean (used in Playframework).
+JPA. JPA Performance Benchmark.
+Конфигурирование JPA. Сканировние Entities. JPA definitions
+HQL/ JPQL.
+JPA Criteria API. Unified Queries for Java
+Java 8 Time API Converter
+Транзакция. ACID. Уровни изоляции транзакций.
+Добавляем поддержку HSQLDB.
+
+    Неделя 6: Транзакции. Профили Maven и Spring. Пулы коннектов. Spring Data JPA. Spring кэш
+Выбор реализации пула коннектов: BoneCP, Commons Database Connection Pooling, HikariCP.
+Spring Data JPA
+Кеширование в Spring Framework
+Распределённая система кеша ehcache
+
+    Неделя 7: Кэш Hibernate. Spring Web MVC
+Кэш Hibernate.Уровни кэширования Hibernate
+Spring Web. Паттерн MVC
+JSP, JSTL, internationalization
+Динамическое изменение профиля при запуске. Конфигурирование Tomcat через maven plugin и jndi
+Spring Web MVC
+Spring Internationalization
+
+    Неделя 8: REST
+Tomcat pool. Auto generate DDL
+Тестирование Spring MVC
+REST контроллеры
+Тестирование REST контроллеров. Добавление Jackson
+jackson-datatype-hibernate. Тестирование через матчеры
+Тестирование через SoapUi. UTF-8
+
+    Неделя 9: Bootstrap. Datatables. AJAX. jQuery. Spring Security
+WebJars.
+Bootstrap. Datatables
+AJAX. jQuery. Notifications
+Добавление Spring Security
+
+    Неделя 10: Шифрование пароля. Binding. Spring Security Test.
+Собственный провайдер авторизации. Шифрование пароля
+Binding/Validation
+Работа с Dandelion Datatables через Ajax
+Spring Security Test
+
+    Неделя 11: CSRF. JSTL. Taglib.
+Защита от межсайтовой подделки запроса (CSRF)
+Создание страницы логин, профиля и регистрации
+JSTL/ Taglib
+Обработка исключений в Spring MVC
+Неделя 12: Деплой в PaaS-платформу Heroku.
+Деплой в PaaS-платформу Heroku.
+
+    Неделя 13: Миграция.
+Spring Boot 2.4
+Spring Data Rest/HATEOAS
+Lombok
+H2
+Thymeleaf
