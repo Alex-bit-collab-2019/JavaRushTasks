@@ -1,6 +1,9 @@
 package com.javarush.task.task17.task1721;
 
 import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,12 +70,12 @@ public class Solution {
 
     public void joinData() throws CorruptedDataException {
          if (allLines.containsAll(forRemoveLines)) {
-            allLines.removeAll(forRemoveLines);
-            // System.out.println("ops...");
+            //allLines.removeAll(forRemoveLines);
+             System.out.println("ops...");
          } else {
-             allLines.clear();
-             //System.out.println("clear...");
-             throw new CorruptedDataException();
+             //allLines.clear();
+             System.out.println("clear...");
+             //throw new CorruptedDataException();
          }
     }
 }
