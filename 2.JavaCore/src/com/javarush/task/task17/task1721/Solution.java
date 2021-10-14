@@ -16,6 +16,8 @@ public class Solution {
 
         String filePath1 = null;    // "C:\alex\java\JavaRushTasks\JavaRushTasks\test.txt"
         String filePath2 = null;    // "C:\alex\java\JavaRushTasks\JavaRushTasks\test2.txt"
+        // /home/alexs/JavaRushTasks/JavaRushTasks/2.JavaCore/src/com/javarush/task/task17/task1721/text.txt
+
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         try {
@@ -55,9 +57,22 @@ public class Solution {
             e.printStackTrace();
         }
 
+        Solution solution = new Solution();
+        try {
+            solution.joinData();
+        } catch (CorruptedDataException e) {
+            e.printStackTrace();
+        }
     }
 
     public void joinData() throws CorruptedDataException {
-
+         if (allLines.containsAll(forRemoveLines)) {
+            allLines.removeAll(forRemoveLines);
+            // System.out.println("ops...");
+         } else {
+             allLines.clear();
+             //System.out.println("clear...");
+             throw new CorruptedDataException();
+         }
     }
 }

@@ -1,0 +1,4 @@
+CorruptedDataException.java
+Solution.java
+text.txt
+Условие.jrtc
