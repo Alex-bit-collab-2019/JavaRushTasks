@@ -27,7 +27,7 @@ public class Solution {
         Properties properties = new Properties();
         properties.load(inputStream);
 
-        for(Map.Entry entry : properties.entrySet()){
+        for(Map.Entry<Object, Object> entry : properties.entrySet()){
             runtimeStorage.put(entry.getKey().toString(), entry.getValue().toString());
         }
 
